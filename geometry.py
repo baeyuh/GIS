@@ -81,10 +81,7 @@ def get_length(geoms):
 def create_polygon(x_coords, y_coords):
     
     try:
-        coordpairs = []
-        for x in x_coords:
-            for y in y_coords:
-                coordpairs.append((x, y))             
+        coordpairs = [(x, y) for x in x_coords for y in y_coords]            
         return Polygon(coordpairs)
     
     except Exception as e:
@@ -103,4 +100,3 @@ def insert_geomtogdf(geom):
         return logging.exception(e)
 
 
- 
